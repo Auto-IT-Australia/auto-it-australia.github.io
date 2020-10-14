@@ -1,34 +1,99 @@
 {
-  "name": "newco-docs",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "newco-docs",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "https://auto-it-australia.github.io",
+	"scripts": {
+		"start": "yarn build-content && react-scripts start",
+		"build": "yarn build-content && react-scripts build",
+		"build-content": "node ./data && prettier --single-quote --trailing-comma es5 --write src/data.js",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"predeploy": "yarn build-content && yarn build",
+		"deploy": "gh-pages -d build",
+		"postinstall": "bash ./getComponents.sh"
+	},
+	"standard": {
+		"ignore": [
+			"/node_modules/"
+		],
+		"globals": [
+			"it",
+			"console",
+			"protractor",
+			"browser",
+			"by",
+			"element",
+			"expect",
+			"jest",
+			"describe",
+			"assert",
+			"beforeEach"
+		]
+	},
+	"dependencies": {
+		"@babel/plugin-proposal-class-properties": "^7.2.1",
+		"@babel/plugin-transform-runtime": "^7.2.0",
+		"@reach/router": "^1.2.1",
+		"axios": "^0.18.0",
+		"babel-plugin-lodash": "^3.3.4",
+		"babel-plugin-macros": "^2.4.2",
+		"babylon-options": "^2.0.1",
+		"base64-url": "^2.2.0",
+		"eslint-config-standard": "^12.0.0",
+		"eslint-config-standard-jsx": "^6.0.2",
+		"eslint-config-standard-react": "^7.0.2",
+		"eslint-plugin-import": "^2.16.0",
+		"eslint-plugin-jest": "^22.3.0",
+		"eslint-plugin-jsx-a11y": "^6.2.1",
+		"eslint-plugin-node": "^8.0.1",
+		"eslint-plugin-promise": "^4.0.1",
+		"eslint-plugin-react": "^7.12.4",
+		"eslint-plugin-react-hooks": "^1.0.2",
+		"eslint-plugin-standard": "^4.0.0",
+		"formik": "^1.5.2",
+		"gh-pages": "^2.0.1",
+		"http-server": "^0.11.1",
+		"lodash": "^4.17.11",
+		"node-sass": "^4.14.1",
+		"prettier-standard": "^9.1.1",
+		"prop-types": "^15.7.2",
+		"raw.macro": "^0.2.0",
+		"react": "^16.8.6",
+		"react-async-component": "^2.0.0",
+		"react-docgen": "^4.0.1",
+		"react-dom": "^16.8.6",
+		"react-images-uploading": "^3.0.1",
+		"react-loading": "^2.0.3",
+		"react-markdown": "^4.0.4",
+		"react-redux": "^6.0.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "2.1.5",
+		"react-select": "^3.1.0",
+		"react-syntax-highlighter": "^10.1.2",
+		"react-transition-group": "^2.6.1",
+		"react-visibility-sensor": "^5.0.2",
+		"recompose": "^0.27.1",
+		"redux": "^4.0.1",
+		"redux-devtools-extension": "^2.13.5",
+		"redux-form": "^8.1.0",
+		"redux-promise-middleware": "^5.1.1",
+		"redux-saga": "^0.16.2",
+		"static-cms": "^0.1.0",
+		"styled-components": "^4.1.1"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"@babel/plugin-syntax-bigint": "^7.8.3",
+		"prettier": "^2.1.1",
+		"react-hot-loader": "^4.7.0"
+	}
 }

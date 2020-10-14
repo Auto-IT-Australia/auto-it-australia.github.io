@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './base.sass';
+import { HashRouter } from 'react-router-dom';
+import { SubApp } from './subApp';
+import { ThemeProvider } from 'styled-components';
+import Theme from './Theme';
+
+const inSubDir = !!document.location.pathname.match(/pages\/autoit\/website/);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<HashRouter>
+		<ThemeProvider theme={Theme}>
+			<SubApp path='/*' />
+		</ThemeProvider>
+	</HashRouter>,
+	document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
